@@ -118,17 +118,3 @@ $professores = array(	0 => array(	'nome' 	=> 	'Luiz Bono',
 var_dump($professores);
 ?>
 
-<table border = '1'>
-<tr><td>Id</td> <td>Nome</td> <td>Idade</td> <td>Peso</td> <td>Signo</td></tr>
-<?php
-foreach($professores as $linahs => $professore){
-	echo "<tr><td>Linhas</td>
-		<td>{$professores['nome']}</td>
-		<td>{$professores['idade']}</td>
-		<td>{$professores['peso']}</td>
-		<td>{$professores['signo']}</td></tr>"
-
-}
-?>
-
-</table>

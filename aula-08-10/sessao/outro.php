@@ -2,4 +2,4 @@
 
 session_start();
 
-echo 'Outro diretorio'. $_SESSION['user'];
+echo 'Outro diretorio'. $_SESSION['nome'];

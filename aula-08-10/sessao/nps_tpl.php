@@ -7,10 +7,16 @@ $_SESSION['nome'] = 'Bruno';
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Meu Site</title>
     
 </head>
 <body>
+<?php
+require 'sessao.php';
+
+$_SESSION['nome'] = 'Bruno';
+
+?>
     <center>
     <h3>Modelo de Net Promoter Score</h3>
         <form action="nps.php" method="post">

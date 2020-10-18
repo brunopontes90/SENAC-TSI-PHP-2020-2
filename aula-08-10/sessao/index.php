@@ -12,19 +12,35 @@ $credenciais = [0 => ['user' => 'bruno@senac.br', 'pass' => '123456'],
                 2 => ['user' => 'elza@senac.br', 'pass' => '1010101']];
 
 
-if (isset($_POST['entrar'])) { //verifica se é login e senha validos
+if (isset($_SESSION['login'])) { //caso o login estiver logado no sistema
+
+    //retorna direto para o menu
+    include 'header_tpl.php';
+    include 'index_menu_tpl.php';
+    include 'footer.php';
+
+}elseif (isset($_POST['entrar'])) { //caso o user tenha acabado de preencher o form de login
     
+    // VERFICA SE AS CREDENCIAIS SÃO VALIDAS
     $login = $_POST['login'];
     $senha = $_POST['senha'];
 
     if (in_array(['user' => $login, 'pass' => $senha], $credenciais)) {
-        echo 'Seja bem-vindo!';
+
+        //Cria vetor no SESSION para o login do user e verifica se existe esse login nas outras paginas
+        $_SESSION['login'] = $login;
+
+    //retorna direto para o menu
+    include 'header_tpl.php';
+    include 'index_menu_tpl.php';
+    include 'footer.php';
+
     }else{
         $msg = 'Credenciais invalidas, tente novamente';
         include 'index_tpl.php';
     }
+}else { //Caso o user tenha entrado pela 1° vez no site
 
-    echo "<a href='index.php'>Sair</a>";
-}else {
     include 'index_tpl.php'; //se nao estiver entra no form
+
 }

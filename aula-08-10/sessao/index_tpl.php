@@ -24,7 +24,9 @@
                             <label for="senha">Senha</label>
                             <input type="password" name="senha">
                             <br><br>
-                            <input type="submit" name="entrar">
+                            <center>
+                            	<input type="submit" name="entrar">
+                            </center>
                             <br><br>
                             
                     </form>

@@ -6,11 +6,28 @@ error_reporting(E_ALL);
 
 session_start();
 
-//armazenando login e senha no db
-$credenciais = [0 => ['user' => 'bruno@senac.br', 'pass' => '123456'],
-                1 => ['user' => 'luana@senac.br', 'pass' => '678910'],
-                2 => ['user' => 'elza@senac.br', 'pass' => '1010101']];
+require_once 'db.php';
 
+/*
+
+EXEMPLO DECOMO CRIAR SENHA 
+TECNICA SALT
+CRIA UMA CRIPTOGRAFIA
+$pass = password_hash(123456,password_default);
+
+*/
+
+
+//armazenando login e senha no db
+// OBS: CRIAR NO BANCO DEPOIS
+// $credenciais = [0 => ['user' => 'bruno@senac.br', 'pass' => '123456'],
+//                 1 => ['user' => 'luana@senac.br', 'pass' => '678910'],
+//                 2 => ['user' => 'elza@senac.br', 'pass' => '1010101']];
+
+
+// VERIFICAR SE EXISTE O USUARIO E PEGAR O HASH  DA SENHA
+
+// COMPARA A SENHA PASSADA PELO USER  COM O HASH ARMAZENADO NO DB
 
 if (isset($_SESSION['login'])) { //caso o login estiver logado no sistema
 

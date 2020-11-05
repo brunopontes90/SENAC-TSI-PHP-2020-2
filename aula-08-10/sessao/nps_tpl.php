@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-session_start();
+require 'sessao.php';
 $_SESSION['nome'] = 'Bruno';
 
 ?>
@@ -11,12 +11,7 @@ $_SESSION['nome'] = 'Bruno';
     
 </head>
 <body>
-<?php
-require 'sessao.php';
-
-$_SESSION['nome'] = 'Bruno';
-
-?>
+<?php include 'index_menu_tpl.php';?>
     <center>
     <h3>Modelo de Net Promoter Score</h3>
         <form action="nps.php" method="post">

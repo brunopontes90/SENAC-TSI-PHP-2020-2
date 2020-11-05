@@ -11,7 +11,7 @@
         <table border="1">
             <tr>
                 <td>
-                    <form method="post">
+                    <form method="post" action="index.php">
                         <br>
                         <?php
                             if(isset($msg)) echo $smg;
@@ -19,13 +19,13 @@
                         <br>
                         <br>
                             <label for="login">Login</label>
-                            <input type="text" name="login">
+                            <input type="text" id="login" name="login">
                             <br><br>
                             <label for="senha">Senha</label>
-                            <input type="password" name="senha">
+                            <input type="password" id="senha" name="senha">
                             <br><br>
                             <center>
-                            	<input type="submit" name="entrar">
+                            	<input type="submit" name="entrar"  value="Entrar">
                             </center>
                             <br><br>
                             

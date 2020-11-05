@@ -17,17 +17,9 @@ $pass = password_hash(123456,password_default);
 
 */
 
+session_start();
+require_once 'db.php';
 
-//armazenando login e senha no db
-// OBS: CRIAR NO BANCO DEPOIS
-// $credenciais = [0 => ['user' => 'bruno@senac.br', 'pass' => '123456'],
-//                 1 => ['user' => 'luana@senac.br', 'pass' => '678910'],
-//                 2 => ['user' => 'elza@senac.br', 'pass' => '1010101']];
-
-
-// VERIFICAR SE EXISTE O USUARIO E PEGAR O HASH  DA SENHA
-
-// COMPARA A SENHA PASSADA PELO USER  COM O HASH ARMAZENADO NO DB
 
 if (isset($_SESSION['login'])) { //caso o login estiver logado no sistema
 
@@ -38,19 +30,24 @@ if (isset($_SESSION['login'])) { //caso o login estiver logado no sistema
 
 }elseif (isset($_POST['entrar'])) { //caso o user tenha acabado de preencher o form de login
     
-    // VERFICA SE AS CREDENCIAIS SÃO VALIDAS
-    $login = $_POST['login'];
+    //Verficar se existe o usuário e pegar o hash da senha
+    $login = filter_var($_POST['login'], FILTER_SANITIZE_EMAIL);
     $senha = $_POST['senha'];
 
-    if (in_array(['user' => $login, 'pass' => $senha], $credenciais)) {
+    $r = $db->query("SELECT senha FROM usuario WHERE email = '$login'");
+	$reg = $r->fetch(PDO::FETCH_ASSOC);
+	$hash = $reg['senha'];
+
+    //Comprara a senha passada pelo usuário com o hash armazenado no DB
+    if (password_verify( $senha, $hash) ) {
 
         //Cria vetor no SESSION para o login do user e verifica se existe esse login nas outras paginas
         $_SESSION['login'] = $login;
 
-    //retorna direto para o menu
-    include 'header_tpl.php';
-    include 'index_menu_tpl.php';
-    include 'footer.php';
+        //retorna direto para o menu
+        include 'header_tpl.php';
+        include 'index_menu_tpl.php';
+        include 'footer.php';
 
     }else{
         $msg = 'Credenciais invalidas, tente novamente';

@@ -17,8 +17,6 @@ $pass = password_hash(123456,password_default);
 
 */
 
-session_start();
-require_once 'db.php';
 
 
 if (isset($_SESSION['login'])) { //caso o login estiver logado no sistema

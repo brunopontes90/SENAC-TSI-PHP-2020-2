@@ -23,7 +23,9 @@
                             <br><br>
                             <label for="senha">Senha</label>
                             <input type="password" id="senha" name="senha">
-                            <br><br>
+                            <br>
+                            <a href="usuario/cadastro.php">Cadastre-se</a>
+                            <br>
                             <center>
                             	<input type="submit" name="entrar"  value="Entrar">
                             </center>

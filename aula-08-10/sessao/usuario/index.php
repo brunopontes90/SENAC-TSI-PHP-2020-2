@@ -10,6 +10,16 @@ require 'model/dados.php';
 
 chdir (__DIR__);
 
+
+
+if ( isset($_GET['apagar']) ) {
+
+    if ( !apagar_usuario( $_GET['apagar'] ) ) {
+
+        $erro = 'Erro ao tentar apagar o usuário!';
+    }
+}
+
 $lista = listar();
 
 require 'view/lista.php';

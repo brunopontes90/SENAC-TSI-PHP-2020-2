@@ -1,24 +1,28 @@
 <?php
 
-include '../../header_tpl.php';
-include '../../index_menu_tpl.php';
+include '../header_tpl.php';
+include '../index_menu_tpl.php';
+ 
+echo '<br><br>
 
-echo '  <br><br>
-        <center>
-        <table border="1" width="50%">
-        <tr>
-            <td>ID</td><td>Nome</td><td>Email</td>
-        </tr>';
+ <center>';
 
-foreach($lista as $usuario){
+if ( isset($erro) ) {
 
-    echo "<tr>
-            <td>{$usuario['id']}</td><td>{$usuario['nome']}</td><td>{$usuario['email']}</td>
-            </tr>";
+	echo "<font color='red'>$erro</font><br><br>";
 }
 
-echo '</table>
-        </center>';
-
-include '../../footer.php';
-
+echo '	<table border="1" width="50%">
+                         <tr>
+                         <td>ID</td><td>Nome</td><td>E-mail</td><td></td>
+ 			</tr>';
+ 
+ foreach ($lista as $usuario) {
+ 	
+        echo "	<tr>
+        <td>{$usuario['id']}</td>
+                <td>{$usuario['nome']}</td>
+                <td>{$usuario['email']}</td>
+                <td><a href='?apagar={$usuario['id']}'>apagar</a></td>
+                </tr>";
+}

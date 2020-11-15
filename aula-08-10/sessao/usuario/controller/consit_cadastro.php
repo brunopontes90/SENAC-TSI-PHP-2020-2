@@ -23,8 +23,6 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     
     $erros[] = 'E-mail já cadastrado';
 
-}{
-
 }
 
 // VERIFICA SE A SENHA TEM NO MINIMO 8 CARACTERES

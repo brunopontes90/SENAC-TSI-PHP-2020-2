@@ -7,6 +7,7 @@ error_reporting(E_ALL);
 session_start();
 
 require_once 'db.php';
+require 'usuario/model/dados.php';
 
 /*
 
@@ -21,6 +22,10 @@ $pass = password_hash(123456,password_default);
 
 if (isset($_SESSION['login'])) { //caso o login estiver logado no sistema
 
+    $foto_vetor = get_imagem_usuario($_SESSION['id']);
+
+    $foto = $foto_vetor[0]['foto'];
+    
     //retorna direto para o menu
     include 'header_tpl.php';
     include 'index_menu_tpl.php';
@@ -41,6 +46,8 @@ if (isset($_SESSION['login'])) { //caso o login estiver logado no sistema
 
         //Cria vetor no SESSION para o login do user e verifica se existe esse login nas outras paginas
         $_SESSION['login'] = $login;
+        $_SESSION['id'] = $reg['id'];
+
 
         //retorna direto para o menu
         include 'header_tpl.php';

@@ -31,6 +31,31 @@ chdir( __DIR__ );
  	return is_numeric($registro['id']) ? true : false;
 }
 
+
+function vincula_imagem_ao_usuario(int $id, string $nome_imagem): bool{
+
+	global $db;
+ 
+	$stmt = $db->prepare('UPDATE  usuario SET foto = :email WHERE id = :id');
+
+	$stmt->bindParam(':foto', $nome_imagem);					
+	$stmt->bindParam(':id', $id);					
+
+	return $stmt->execute();
+
+}
+
+function get_imagem_usuario(int $id): array{
+	global $db;
+ 
+	$stmt = $db->prepare('SELECT foto FROM usuario WHERE id = :id');
+
+	$stmt->bindParam(':id', $id); //associa o label com a variavel
+	$stmt->execute(); // executa
+
+	return $stmt->fechAll(); // retorna o array completo
+}
+
 function gravar_usuario( string $nome, string $email, string $senha): ?int 
 {
 	global $db;

@@ -24,5 +24,6 @@ echo '	<table border="1" width="50%">
                 <td>{$usuario['nome']}</td>
                 <td>{$usuario['email']}</td>
                 <td><a href='?apagar={$usuario['id']}'>apagar</a></td>
+                <td><a href='?editar={$usuario['id']}'>editar</a></td>
                 </tr>";
 }

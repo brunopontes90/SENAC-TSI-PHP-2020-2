@@ -34,9 +34,9 @@ require 'model/dados.php';
 				// cria o nome da imagem com algo qualquer no meio usando md5 para criptografar
 				$nome_imagem = 'foto_' . md5(rand(-99999999,99999999)) . '_' . $id . '.' . $ext;
 				$arquivo_temp = $_FILES['foto']['tmp_name'];
-				$detino  =$dir_imagens . $nome_imagem; // troca o nome da foto
+				$detino = $dir_imagens . $nome_imagem; // troca o nome da foto
 
-				move_uploaded_file($arquivo_temp. $detino);
+				move_uploaded_file($arquivo_temp . $detino);
 
 				vincula_imagem_ao_usuario($id, $nome_imagem);
 	

@@ -1,0 +1,49 @@
+
+/*
+// CRIA O DIRETORIO 
+function uploadFile($campo){
+
+    // CRIA UM NOME ALEATORIO CRIPTOGRAFADO
+    $time = getdate();
+    $nome_arquivo = $arquivo . md5($time) . '_' . $exit;
+    echo 'Nome do arquivo: ' . $time . md5($time);
+
+    $uploaddir = __DIR__ . $nome_arquivo;
+    echo 'Diretório de upload:'.$uploaddir;
+    $filename = $basename($_FILES[$campo][$nome_arquivo]);
+    echo 'Nome do arquivo:' . $filename;
+    $uploadfile = $uploaddir . $filename;
+    echo 'Path completo: ' . $uploadfile;
+
+    if (move_uploaded_file($_FILES[$campo]['tmp_name'], $uploadfile)) {
+        return $filename;
+        
+    }
+    echo 'Deu erro';
+    return null;
+}
+
+    // INSERE NA TABELA
+    $obj = prepare(" INSERT INTO excel
+                            ($uploadfile)
+                    VALUES
+                            (:$uploadfile)");obj = prepare(" INSERT INTO excel
+                            ($uploadfile)
+                    VALUES
+                            (:$uploadfile)");
+
+    // Substitui :nome_arquivo pelo valor enviado
+    $uploadfile->bindParam(':$uploadfile', $_POST[$uploadfile]);
+
+
+    // EXECUTAR
+    if($obj->execute()){
+        echo 'ENVIADO COM SUCESSO';
+    }else{
+        echo 'ERRO, TENTE NOVAMENTE';
+        print_r($arqnome_arquivo->errorInfo());
+    }
+}
+*/
+
+//uploadFile($arquivo);

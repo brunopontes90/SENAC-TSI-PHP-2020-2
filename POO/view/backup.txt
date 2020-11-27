@@ -1,0 +1,35 @@
+<?php
+
+Class Produto{
+    // ATRIBUTOS OU PROPRIEDADES
+    private $nome;
+    private $descricao;
+    private $preco;
+    private $imagem;
+
+    // METODO
+    public function setNome(string $nome): bool{
+        $this->nome = $nome;
+        return true;
+    }
+
+
+    public function getNome(): string{
+        return $this->nome ?? 'Não definido'; // retorna 'nao definido' se nao chamar setNome antes
+    }
+
+}
+
+
+// INSTANCIANDO O ATRIBUTO
+$smatphone = new Produto;
+$shampoo = new Produto;
+
+// ATRIBUINDO ALGO AO PRDUTO
+$smatphone->setNome('Xingling 10s 14B Note Flex');
+$shampoo->setNome('aksfsffsd');
+
+// RETORNANDO O VALOR INSTANCIADO
+echo "Nome do produto: " . $smatphone->getNome();
+echo "Nome do produto: " . $shampoo->getNome();
+
